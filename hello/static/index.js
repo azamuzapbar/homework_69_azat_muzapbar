@@ -37,8 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
           if ("result" in data) {
             document.querySelector("#result").value = data.result;
+            document.querySelector("#result").style.backgroundColor = "green";
+            document.querySelector("#result").style.color = "black";
           } else if ("error" in data) {
-            alert(data.error);
+            document.querySelector("#result").value = "data is not numeric or it is an error occurs during calculation";
+            document.querySelector("#result").style.backgroundColor = "red";
+            document.querySelector("#result").style.color = "black";
           }
         })
         .catch(error => console.error(error));
